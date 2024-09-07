@@ -1,0 +1,29 @@
+def showCal():
+    new_gui = Tk()
+    new_gui.config(background = 'white')
+    new_gui.title('Calendar')
+    new_gui.geometry('700x500')
+    fetch_year = int(year_field.get())
+    cal_content = calendar.calendar(fetch_year)
+    cal_year = Label(new_gui, text = 'Calendar content', font = 'Consolas 10 bold')
+    cal_year.grid(row = 5, column = 1, padx = 20)
+    new_gui.mainloop()
+
+#driver code
+if __name__ == '__main__':
+    gui = Tk()
+    gui.config(background = 'yellow')
+    gui.title('Calendar')
+    gui.geometry('700x500')
+    cal = Label(gui, text = 'Enter year:', bg = 'red', font = ('times', 28, 'bold'))
+    year = Label(gui, text = 'Year', bg = 'red')
+    year_field = Entry(gui)
+    show = Button(gui, text = 'Show', bg = 'purple', fg = 'red', command = showCal)
+    exit = Button(gui, text = 'Exit', bg = 'purple', fg = 'red', command = exit)
+
+    cal.grid(row = 1, column = 1)
+    year.grid(row = 2, column = 1)
+    year_field.grid(row = 3, column = 1)
+    show.grid(row = 4, column = 1)
+    exit.grid(row = 5, column = 1)
+    gui.mainloop()
